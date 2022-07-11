@@ -1,0 +1,5 @@
+package com.best2log.best2log.exception;
+
+public class EmpresaNotFoundException extends Exception {
+
+}
