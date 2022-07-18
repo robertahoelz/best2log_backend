@@ -35,17 +35,17 @@ public class FuncionarioController {
 		header.add("Funcionario-getOneById", "Segue o Funcionario");
 		return new ResponseEntity<FuncionarioDTO>(service.getOne(id), header, HttpStatus.valueOf(200));
 	}
-	@GetMapping("/cpf")
-	public ResponseEntity<FuncionarioDTO> getOneByCpf(@RequestBody FuncionarioDTO dto) throws FuncionarioNotFoundException {
+	@GetMapping("/cpf/{cpf}")
+	public ResponseEntity<FuncionarioDTO> getOneByCpf(@PathVariable String cpf) throws FuncionarioNotFoundException {
 		HttpHeaders header = new HttpHeaders();
 		header.add("Funcionario-getOneByCpf", "Segue o Funcionario");
-		return new ResponseEntity<FuncionarioDTO>(service.getOneByCpf(dto.getCpf()), header, HttpStatus.valueOf(200));
+		return new ResponseEntity<FuncionarioDTO>(service.getOneByCpf(cpf), header, HttpStatus.valueOf(200));
 	}
-	@GetMapping("/email")
-	public ResponseEntity<FuncionarioDTO> getOneByEmail(@RequestBody RedefinirSenhaDTO email) throws FuncionarioNotFoundException {
+	@GetMapping("/email/{email}")
+	public ResponseEntity<FuncionarioDTO> getOneByEmail(@PathVariable String email) throws FuncionarioNotFoundException {
 		HttpHeaders header = new HttpHeaders();
 		header.add("Funcionario-getOneByCpf", "Segue o Funcionario");
-		return new ResponseEntity<FuncionarioDTO>(service.getOneByEmail(email.getEmail()), header, HttpStatus.valueOf(200));
+		return new ResponseEntity<FuncionarioDTO>(service.getOneByEmail(email), header, HttpStatus.valueOf(200));
 	}
 
 	@PostMapping
